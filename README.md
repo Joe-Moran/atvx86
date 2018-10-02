@@ -1,4 +1,7 @@
 # atvx86
+
+Moddified by Foxtrotdragon
+
 Android TV based on Android-x86
 
 Step 1:
