@@ -1,6 +1,12 @@
 # atvx86
 
-Moddified by Foxtrotdragon
+Android TV based on Android-x86  -  Updated by Foxtrotdragon to Android Oreo
+
+
+Step 2 is now obsolete just skip it if your manifest already has <project path="device/google/atv"...>
+
+Edited the original files from android-x86 8.1 based on files from Ric96
+
 
 Android TV based on Android-x86
 
