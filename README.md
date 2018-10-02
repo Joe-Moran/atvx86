@@ -33,21 +33,22 @@ Step 3 Edit manifest to add sync necessary files and updated :
 Step 4: 
    Find latest version of Launcher binary in following link. (make sure you download oreo binaries)
    https://developers.google.com/android/nexus/drivers#fugu
+   
    extract tgz onto the source, then run the script file, which will download; 
-   leanback launcher, remote service and tv service to vendor/google/...
+   leanback launcher, remote service and tv service to ```vendor/google/...```
    
    Source: https://github.com/peyo-hd/device_brcm_rpi2/wiki#how-to-apply-android-tv-leanback-launcher
    
 Step 5:
-   Copy and Replace MainFragment.java to ``` packages/apps/TVSettings/Settings/src/com/android/tv/settings/ ```
+   Copy and Replace MainFragment.java to ```packages/apps/TVSettings/Settings/src/com/android/tv/settings/```
   
 Step 6:
 	in a terminal ; 
 	
-	```	$ . build/envsetup.sh
+		$ . build/envsetup.sh
 		$ lunch
 			Select what version you use ex android_x86_64-userdebug
 			
 		$ m -jX iso_img
 			X= number of physcal cores + 1 IE ryzen 1600 6 core 12 thread
-			m -j7 iso_img ``` 
+			m -j7 iso_img 
