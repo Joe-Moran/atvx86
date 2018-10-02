@@ -24,6 +24,7 @@ Step 2: Replace files:
    
 Step 3 Edit manifest to add sync necessary files and updated : 
 	(assuming vanilla android x86) navigate to /.repo/manifests/android-x86.xml 
+	
 	replace <remove-project name="device/google/atv" />
 	with <!--remove-project name="device/google/atv" /-->
 	
