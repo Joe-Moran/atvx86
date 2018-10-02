@@ -2,34 +2,50 @@
 
 Android TV based on Android-x86  -  Updated by Foxtrotdragon to Android Oreo
 
-
-Step 2 is now obsolete just skip it if your manifest already has <project path="device/google/atv"...>
+This assumes you are using vanilla android-x86 oreo  
 
 Edited the original files from android-x86 8.1 based on files from Ric96
 
-
 Android TV based on Android-x86
 
-Step 1:
+
+Step 1 Clone android-x86 Oreo:
+	In a terminal type;
+	
+	$ mkdir android-x86
+	$ cd android-x86
+	$ repo init -u git://git.osdn.net/gitroot/android-x86/manifest -b $branch
+	$ repo sync --no-tags --no-clone-bundle
+
+
+
+Step 2 Replace files:
    Copy the "common" inside the device folder to androidtv-x86/device/generic/ and overwrite any existing files
    
-Step 2:
-   Copy the google folder inside the device folder of your work directory.
-   OR
-     Add the following line to the default manifest: 
-     ```
-     <project path="device/google/atv" name="device/google/atv" groups="device,fugu,broadcom_pdk,generic_fs"/>
-     ```
-     and repo sync again.
+Step 3 Edit manifest to add sync necessary files and updated : 
+	(assuming vanilla android x86) navigate to /.repo/manifests/android-x86.xml 
+	replace <remove-project name="device/google/atv" />
+	with <!--remove-project name="device/google/atv" /-->
+	
+	In terminal;
+		$ repo sync --no-tags --no-clone-bundle
      
-Step 3: 
-   Find latest version of Launcher binary in following link.
+Step 4: 
+   Find latest version of Launcher binary in following link. (make sure you download oreo binaries)
    https://developers.google.com/android/nexus/drivers#fugu
-   Before doing Android build step, Extract the binary package on top of the Android source, Then LeanbackLauncher apk will     be placed on the path below.
-   vendor/google/fugu/proprietary/LeanbackLauncher.apk
+   extract tgz onto the source, then run the script file, which will download; 
+   leanback launcher, remote service and tv service to vendor/google/...
+   
    Source: https://github.com/peyo-hd/device_brcm_rpi2/wiki#how-to-apply-android-tv-leanback-launcher
    
-Step 4:
+Step 5:
    Copy and Replace MainFragment.java to ``` packages/apps/TVSettings/Settings/src/com/android/tv/settings/ ```
    
-And then follow the normal Android-x86 build process
+Step 6:
+	in a terminal 
+		$ . build/envsetup.sh
+		$ lunch
+			Select what version you use ex android_x86_64-userdebug
+		$ m -jX iso_img
+			X= number of physcal cores + 1 IE ryzen 1600 6 core 12 thread
+			m -j7 iso_img
