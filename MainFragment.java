@@ -14,8 +14,6 @@
  * limitations under the License
  */
 
- //CUSTOM BY Foxtrotdragon
- 
 package com.android.tv.settings;
 
 import android.accounts.Account;
@@ -38,7 +36,6 @@ import android.media.tv.TvInputManager;
 import android.os.Bundle;
 import android.os.UserHandle;
 import android.support.v17.preference.LeanbackPreferenceFragment;
-import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.preference.Preference;
 import android.support.v7.preference.PreferenceGroup;
 import android.telephony.SignalStrength;
@@ -113,11 +110,11 @@ public class MainFragment extends LeanbackPreferenceFragment {
         final TvInputManager manager = (TvInputManager) getContext().getSystemService(
                 Context.TV_INPUT_SERVICE);
         if (manager != null) {
-           // for (final TvInputInfo input : manager.getTvInputList()) {
-            //    if (input.isPassthroughInput()) {
-              //      mInputSettingNeeded = true;
-               // }
-           // }
+            for (final TvInputInfo input : manager.getTvInputList()) {
+                if (input.isPassthroughInput()) {
+                    mInputSettingNeeded = true;
+                }
+            }
         }
         super.onCreate(savedInstanceState);
     }
