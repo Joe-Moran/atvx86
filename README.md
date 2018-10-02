@@ -29,7 +29,7 @@ Step 3 Edit manifest to add sync necessary files and updated :
 	with <!--remove-project name="device/google/atv" /-->
 	
 	In terminal;
-		$ repo sync --no-tags --no-clone-bundle
+		$ repo sync 
      
 Step 4: 
    Find latest version of Launcher binary in following link. (make sure you download oreo binaries)
